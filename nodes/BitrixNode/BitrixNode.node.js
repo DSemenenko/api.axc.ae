@@ -313,7 +313,9 @@ class BitrixNode {
                         STATUS_ID
                     }
                 };
-                await axios_1.default.post('https://crm.axcap.ae/rest/1/e6w2jdc3uuz20c84/crm.lead.add.json', item.json);
+                const response = await axios_1.default.post('https://crm.axcap.ae/rest/1/e6w2jdc3uuz20c84/crm.lead.add.json', item.json);
+                const returnItem = this.helpers.returnJsonArray(response.data);
+                return [returnItem];
             }
             catch (error) {
                 if (this.continueOnFail()) {
