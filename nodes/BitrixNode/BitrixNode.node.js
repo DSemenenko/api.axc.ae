@@ -72,6 +72,17 @@ class BitrixNode {
                     },
                 },
                 {
+                    displayName: "Source 2",
+                    name: "source2",
+                    type: "options",
+                    default: '',
+                    placeholder: 'Placeholder value',
+                    description: 'The description text',
+                    typeOptions: {
+                        loadOptionsMethod: 'getSource',
+                    },
+                },
+                {
                     displayName: 'Source Details',
                     name: 'sourcedetails',
                     type: 'string',
@@ -223,6 +234,7 @@ class BitrixNode {
         let PHONE;
         let EMAIL;
         let SOURCE_ID;
+        let UF_CRM_1608198550;
         let UF_CRM_1553506792;
         let UF_CRM_1555592415;
         let UF_CRM_1553165368131;
@@ -245,6 +257,7 @@ class BitrixNode {
                 PHONE = this.getNodeParameter('phone', itemIndex, '');
                 EMAIL = this.getNodeParameter('email', itemIndex, '');
                 SOURCE_ID = this.getNodeParameter('source', itemIndex, '');
+                UF_CRM_1608198550 = this.getNodeParameter('source2', itemIndex, '');
                 UF_CRM_1553506792 = this.getNodeParameter('sourcedetails', itemIndex, '');
                 UF_CRM_1555592415 = this.getNodeParameter('hiddensource', itemIndex, '');
                 UF_CRM_1553165368131 = this.getNodeParameter('ad_language', itemIndex, '');
@@ -282,6 +295,7 @@ class BitrixNode {
                         PHONE: [{ VALUE: PHONE, VALUE_TYPE: "WORK" }],
                         EMAIL: [{ VALUE: EMAIL, VALUE_TYPE: "WORK" }],
                         SOURCE_ID,
+                        UF_CRM_1608198550,
                         UF_CRM_1553506792,
                         UF_CRM_1555592415,
                         UF_CRM_1553165368131,
