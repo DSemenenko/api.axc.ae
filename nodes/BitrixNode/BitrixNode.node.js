@@ -29,6 +29,23 @@ class BitrixNode {
                     description: 'The description text',
                 },
                 {
+                    displayName: "Exclusive",
+                    name: "exclusive",
+                    type: "options",
+                    options: [
+                        {
+                            name: "Yes",
+                            value: "1",
+                        },
+                        {
+                            name: "No",
+                            value: "0",
+                        },
+                    ],
+                    default: "0",
+                    description: "Exclusive",
+                },
+                {
                     displayName: 'Status ID',
                     name: 'status_id',
                     type: 'string',
@@ -251,6 +268,7 @@ class BitrixNode {
         let UTM_TERM;
         let UTM_MEDIUM;
         let STATUS_ID;
+        let UF_CRM_1657039706;
         for (let itemIndex = 0; itemIndex < items.length; itemIndex++) {
             try {
                 NAME = this.getNodeParameter('name', itemIndex, '');
@@ -274,6 +292,7 @@ class BitrixNode {
                 UTM_TERM = this.getNodeParameter('utm_term', itemIndex, '');
                 UTM_MEDIUM = this.getNodeParameter('utm_medium', itemIndex, '');
                 STATUS_ID = this.getNodeParameter('status_id', itemIndex, '');
+                UF_CRM_1657039706 = this.getNodeParameter('exclusive', itemIndex, '');
                 item = items[itemIndex];
                 item.json['name'] = NAME;
                 item.json['tel'] = PHONE;
@@ -310,7 +329,8 @@ class BitrixNode {
                         UTM_CONTENT,
                         UTM_TERM,
                         UTM_MEDIUM,
-                        STATUS_ID
+                        STATUS_ID,
+                        UF_CRM_1657039706
                     }
                 };
                 const response = await axios_1.default.post('https://crm.axcap.ae/rest/1/e6w2jdc3uuz20c84/crm.lead.add.json', item.json);
