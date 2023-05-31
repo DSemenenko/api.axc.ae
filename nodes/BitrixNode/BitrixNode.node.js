@@ -29,6 +29,14 @@ class BitrixNode {
                     description: 'The description text',
                 },
                 {
+                    displayName: 'External ID',
+                    name: 'external',
+                    type: 'string',
+                    default: '',
+                    placeholder: 'External ID...',
+                    description: 'The description text',
+                },
+                {
                     displayName: "Exclusive",
                     name: "exclusive",
                     type: "options",
@@ -269,6 +277,7 @@ class BitrixNode {
         let UTM_MEDIUM;
         let STATUS_ID;
         let UF_CRM_1657039706;
+        let UF_CRM_1685515333;
         for (let itemIndex = 0; itemIndex < items.length; itemIndex++) {
             try {
                 NAME = this.getNodeParameter('name', itemIndex, '');
@@ -293,6 +302,7 @@ class BitrixNode {
                 UTM_MEDIUM = this.getNodeParameter('utm_medium', itemIndex, '');
                 STATUS_ID = this.getNodeParameter('status_id', itemIndex, '');
                 UF_CRM_1657039706 = this.getNodeParameter('exclusive', itemIndex, '');
+                UF_CRM_1685515333 = this.getNodeParameter('external', itemIndex, '');
                 item = items[itemIndex];
                 item.json['name'] = NAME;
                 item.json['tel'] = PHONE;
@@ -330,7 +340,8 @@ class BitrixNode {
                         UTM_TERM,
                         UTM_MEDIUM,
                         STATUS_ID,
-                        UF_CRM_1657039706
+                        UF_CRM_1657039706,
+                        UF_CRM_1685515333
                     }
                 };
                 const response = await axios_1.default.post('https://crm.axcap.ae/rest/1/e6w2jdc3uuz20c84/crm.lead.add.json', item.json);
